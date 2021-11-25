@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3564FD50-4A32-4452-88A3-250411AC1098}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BeautyIvanovZaycev</RootNamespace>
+    <AssemblyName>BeautyIvanovZaycev</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>beauty_logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="DB\Client.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ClientService.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\DocumentByService.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Gender.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Manufacturer.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Product.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ProductPhoto.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ProductSale.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Service.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\ServicePhoto.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sysdiagrams.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Tag.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddClientWindow.xaml.cs">
+      <DependentUpon>AddClientWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Windows\AddClientWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="DB\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DB\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\beauty_logo.ico" />
+    <Resource Include="Resources\beauty_logo.png" />
+    <Resource Include="ClientImages\1.jpg" />
+    <Resource Include="ClientImages\10.jpg" />
+    <Resource Include="ClientImages\11.jpg" />
+    <Resource Include="ClientImages\12.jpg" />
+    <Resource Include="ClientImages\13.jpg" />
+    <Resource Include="ClientImages\14.jpg" />
+    <Resource Include="ClientImages\15.jpg" />
+    <Resource Include="ClientImages\16.jpg" />
+    <Resource Include="ClientImages\17.jpg" />
+    <Resource Include="ClientImages\18.jpg" />
+    <Resource Include="ClientImages\19.jpg" />
+    <Resource Include="ClientImages\2.jpg" />
+    <Resource Include="ClientImages\20.jpg" />
+    <Resource Include="ClientImages\21.jpg" />
+    <Resource Include="ClientImages\22.jpg" />
+    <Resource Include="ClientImages\23.jpg" />
+    <Resource Include="ClientImages\24.jpg" />
+    <Resource Include="ClientImages\25.jpg" />
+    <Resource Include="ClientImages\26.jpg" />
+    <Resource Include="ClientImages\27.jpg" />
+    <Resource Include="ClientImages\28.jpg" />
+    <Resource Include="ClientImages\29.jpg" />
+    <Resource Include="ClientImages\3.jpg" />
+    <Resource Include="ClientImages\30.jpg" />
+    <Resource Include="ClientImages\31.jpg" />
+    <Resource Include="ClientImages\32.jpg" />
+    <Resource Include="ClientImages\33.jpg" />
+    <Resource Include="ClientImages\34.jpg" />
+    <Resource Include="ClientImages\35.jpg" />
+    <Resource Include="ClientImages\36.jpg" />
+    <Resource Include="ClientImages\37.jpg" />
+    <Resource Include="ClientImages\38.jpg" />
+    <Resource Include="ClientImages\39.jpg" />
+    <Resource Include="ClientImages\4.jpg" />
+    <Resource Include="ClientImages\40.jpg" />
+    <Resource Include="ClientImages\41.jpg" />
+    <Resource Include="ClientImages\42.jpg" />
+    <Resource Include="ClientImages\43.jpg" />
+    <Resource Include="ClientImages\44.jpg" />
+    <Resource Include="ClientImages\47.jpg" />
+    <Resource Include="ClientImages\48.jpg" />
+    <Resource Include="ClientImages\5.jpg" />
+    <Resource Include="ClientImages\6.jpg" />
+    <Resource Include="ClientImages\7.jpg" />
+    <Resource Include="ClientImages\8.jpg" />
+    <Resource Include="ClientImages\9.jpg" />
+    <Resource Include="ClientImages\m1.jpg" />
+    <Resource Include="ClientImages\m10.jpg" />
+    <Resource Include="ClientImages\m11.jpg" />
+    <Resource Include="ClientImages\m12.jpg" />
+    <Resource Include="ClientImages\m13.jpg" />
+    <Resource Include="ClientImages\m14.jpg" />
+    <Resource Include="ClientImages\m15.jpg" />
+    <Resource Include="ClientImages\m16.jpg" />
+    <Resource Include="ClientImages\m17.jpg" />
+    <Resource Include="ClientImages\m18.jpg" />
+    <Resource Include="ClientImages\m19.jpg" />
+    <Resource Include="ClientImages\m2.jpg" />
+    <Resource Include="ClientImages\m20.jpg" />
+    <Resource Include="ClientImages\m21.jpg" />
+    <Resource Include="ClientImages\m22.jpg" />
+    <Resource Include="ClientImages\m23.jpg" />
+    <Resource Include="ClientImages\m24.jpg" />
+    <Resource Include="ClientImages\m25.jpg" />
+    <Resource Include="ClientImages\m26.jpg" />
+    <Resource Include="ClientImages\m27.jpg" />
+    <Resource Include="ClientImages\m28.jpg" />
+    <Resource Include="ClientImages\m29.jpg" />
+    <Resource Include="ClientImages\m3.jpg" />
+    <Resource Include="ClientImages\m30.jpg" />
+    <Resource Include="ClientImages\m31.jpg" />
+    <Resource Include="ClientImages\m32.jpg" />
+    <Resource Include="ClientImages\m33.jpg" />
+    <Resource Include="ClientImages\m34.jpg" />
+    <Resource Include="ClientImages\m35.jpg" />
+    <Resource Include="ClientImages\m36.jpg" />
+    <Resource Include="ClientImages\m37.jpg" />
+    <Resource Include="ClientImages\m38.jpg" />
+    <Resource Include="ClientImages\m39.jpg" />
+    <Resource Include="ClientImages\m4.jpg" />
+    <Resource Include="ClientImages\m40.jpg" />
+    <Resource Include="ClientImages\m41.jpg" />
+    <Resource Include="ClientImages\m42.jpg" />
+    <Resource Include="ClientImages\m43.jpg" />
+    <Resource Include="ClientImages\m44.jpg" />
+    <Resource Include="ClientImages\m45.jpg" />
+    <Resource Include="ClientImages\m46.jpg" />
+    <Resource Include="ClientImages\m47.jpg" />
+    <Resource Include="ClientImages\m48.jpg" />
+    <Resource Include="ClientImages\m49.jpg" />
+    <Resource Include="ClientImages\m5.jpg" />
+    <Resource Include="ClientImages\m50.jpg" />
+    <Resource Include="ClientImages\m6.jpg" />
+    <Resource Include="ClientImages\m7.jpg" />
+    <Resource Include="ClientImages\m8.jpg" />
+    <Resource Include="ClientImages\m9.jpg" />
+    <Resource Include="ClientImages\m96.jpg" />
+    <Resource Include="ClientImages\m97.jpg" />
+    <Resource Include="ClientImages\m98.jpg" />
+    <Resource Include="ClientImages\m99.jpg" />
+    <Resource Include="beauty_logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

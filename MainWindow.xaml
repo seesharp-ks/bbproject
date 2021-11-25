@@ -1,0 +1,215 @@
+﻿<Window x:Class="BeautyIvanovZaycev.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautyIvanovZaycev"
+        mc:Ignorable="d"
+        Title="Мордочка: просмотр клиентов"
+        Width="1600" Height="900"
+        Icon="pack://application:,,,/Resources/beauty_logo.ico" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"  >
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="Arrows">
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Background" Value="#FF4A6D"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Tahoma"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Background" Value="#FF4A6D"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="FontFamily" Value="Tahoma"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#FF4A6D"/>
+            <Setter Property="Foreground" Value="Black"/> 
+        </Style>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Background" Value="#FF4A6D"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+        </Style>
+        <Style TargetType="ToggleButton">
+            <Setter Property="Background" Value="#FF4A6D"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" HorizontalAlignment="left" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBlock Text="Список клиентов" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        </StackPanel>
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1">
+            <Grid>
+                <TextBox x:Name="tboxSearch" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="250" TextChanged="tboxSearch_TextChanged">
+                    <TextBox.Effect>
+                        <DropShadowEffect BlurRadius="4"  Direction="270" ShadowDepth="3" Color="LightGray"/>
+                    </TextBox.Effect>
+                </TextBox>
+                <TextBlock IsHitTestVisible="False" Text="Поиск" FontSize="14" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 5 0 0">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=tboxSearch}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                    <Setter Property="Foreground" Value="Gray"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+        </WrapPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1">
+            <Button x:Name="btnAdd" Content="Добавить" Click="btnAdd_Click" Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="btnDelete" Content="Удалить" Click="btnDelete_Click" Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="btnApps" Content="Посещения" Click="btnApps_Click"  Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center"/>
+
+            <Label x:Name="RowColCounter" Content="счётчик" FontFamily="Tahoma" FontSize="14" VerticalAlignment="Center" Margin="5"/>
+
+            <Button Style="{StaticResource Arrows}" x:Name="btnUp" Content="↑10" Click="btnUp_Click"  Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Style="{StaticResource Arrows}" x:Name="btnUp50" Content="↑50" Click="btnUp50_Click"  Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Style="{StaticResource Arrows}" x:Name="btnUp200" Content="↑200" Click="btnUp200_Click"  Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Style="{StaticResource Arrows}"  x:Name="btnDown" Content="↓10" Click="btnDown_Click"  Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Style="{StaticResource Arrows}"  x:Name="btnDown50" Content="↓50" Click="btnDown50_Click"  Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Style="{StaticResource Arrows}"  x:Name="btnDown200" Content="↓200" Click="btnDown200_Click"  Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Style="{StaticResource Arrows}"  x:Name="btnAll" Content="Все" Click="btnAll_Click"  Margin="5">
+                <Button.Effect>
+                    <DropShadowEffect BlurRadius="4" Direction="270" ShadowDepth="3" Color="LightGray"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <ComboBox Width="auto" x:Name="cboxSort" Margin="5"
+                      SelectionChanged="cboxSort_SelectionChanged"/>
+        </StackPanel>
+        <ListView Name="listview" ItemsSource="{Binding Client}" Width="auto" Height="auto"
+                  HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                  Grid.Row="1" Margin="5" FontFamily="Tahoma" Background="#E1E4FF">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Номер" DisplayMemberBinding="{Binding ID}"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Отчество" DisplayMemberBinding="{Binding Patronymic, TargetNullValue=(отсутствует)}" />
+                        <GridViewColumn Header="ДР" DisplayMemberBinding="{Binding Birthday, TargetNullValue=(отсутствует)}"/>
+                        <GridViewColumn Header="Зарегистрирован" DisplayMemberBinding="{Binding RegistrationDate}"/>
+                        <GridViewColumn Header="Почта" DisplayMemberBinding="{Binding Email, TargetNullValue=(отсутствует)}"/>
+                        <GridViewColumn Header="Телефон" DisplayMemberBinding="{Binding Phone}"/>
+                        <GridViewColumn Header="Пол" DisplayMemberBinding="{Binding GenderCode}"/>
+                        <GridViewColumn x:Name="TagColumn" Header="Тэг" DisplayMemberBinding="{Binding Tag.Title, TargetNullValue=(отсутствует)}"/>
+                        <GridViewColumn Header="Посещений" DisplayMemberBinding="{Binding Attendances}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
